@@ -1,11 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowRight, ChevronRight, QrCode, UploadCloud, Utensils, Smartphone, Star, TrendingUp, ClipboardList, Settings, Layers3D } from "lucide-react";
+import { ArrowRight, ChevronRight, QrCode, UploadCloud, Utensils, Smartphone, Star, TrendingUp, ClipboardList, Settings, Layers3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -20,7 +19,7 @@ const Index = () => {
         <div className="container flex h-16 items-center">
           <div className="mr-4 hidden md:flex">
             <a href="/" className="mr-6 flex items-center space-x-2">
-              <Layers3D className="h-6 w-6" />
+              <Layers3 className="h-6 w-6" />
               <span className="font-bold">FoodAR</span>
             </a>
             <NavigationMenu>
@@ -35,7 +34,7 @@ const Index = () => {
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="/"
                           >
-                            <Layers3D className="h-6 w-6" />
+                            <Layers3 className="h-6 w-6" />
                             <div className="mb-2 mt-4 text-lg font-medium">
                               FoodAR
                             </div>
@@ -111,7 +110,7 @@ const Index = () => {
             <div className="w-full flex-1 md:w-auto md:flex-none">
               {isMobile && (
                 <div className="flex items-center">
-                  <Layers3D className="h-6 w-6 mr-2" />
+                  <Layers3 className="h-6 w-6 mr-2" />
                   <span className="font-bold">FoodAR</span>
                 </div>
               )}
@@ -211,7 +210,7 @@ const Index = () => {
               {/* Step 3 */}
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="rounded-full bg-primary p-4">
-                  <Layers3D className="h-6 w-6 text-primary-foreground" />
+                  <Layers3 className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <h3 className="text-xl font-bold">We 3D-ify Your Dishes</h3>
                 <p className="text-muted-foreground">
@@ -562,7 +561,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="flex flex-col space-y-4">
               <div className="flex items-center space-x-2">
-                <Layers3D className="h-6 w-6" />
+                <Layers3 className="h-6 w-6" />
                 <span className="font-bold">FoodAR</span>
               </div>
               <p className="text-sm text-muted-foreground">
