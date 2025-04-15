@@ -8,13 +8,16 @@ import { ArrowRight, ChevronRight, QrCode, UploadCloud, Utensils, Smartphone, St
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import React from "react";
+import RestaurantRegistrationModal from "@/components/RestaurantRegistrationModal";
 
 const Index = () => {
   const isMobile = useIsMobile();
-  
+  const [showModal, setShowModal] = React.useState(false);
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navigation */}
+      <RestaurantRegistrationModal open={showModal} onOpenChange={setShowModal} />
+      
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 hidden md:flex">
@@ -129,7 +132,6 @@ const Index = () => {
       </header>
 
       <main className="flex-1">
-        {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-40 bg-gradient-to-b from-background via-background to-secondary/20">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -148,7 +150,11 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="group animate-pulse hover:animate-none">
+                <Button 
+                  size="lg" 
+                  className="group animate-pulse hover:animate-none"
+                  onClick={() => setShowModal(true)}
+                >
                   Book a Demo
                   <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -161,13 +167,21 @@ const Index = () => {
           <div className="container px-4 md:px-6 mt-16">
             <div className="rounded-lg border bg-card shadow-sm overflow-hidden">
               <div className="relative aspect-video">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                  <div className="rounded-lg bg-black/50 text-center p-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">Interactive 3D Menu Demo</h3>
-                    <p className="text-white/80 mb-4">Experience the future of restaurant menus</p>
-                    <Button variant="secondary">
-                      Play Demo
-                    </Button>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-full max-w-2xl aspect-video bg-black/5 rounded-lg overflow-hidden relative">
+                      <img 
+                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" 
+                        alt="3D Food Visualization" 
+                        className="w-full h-full object-cover transform transition-transform hover:scale-110 duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                        <div className="p-6 text-white">
+                          <h3 className="text-xl font-semibold">Experience Food in 3D</h3>
+                          <p className="text-sm text-white/80">Interactive 3D models bring your menu to life</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -175,7 +189,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* How It Works */}
         <section id="how-it-works" className="w-full py-12 md:py-24 bg-secondary/20">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -187,7 +200,6 @@ const Index = () => {
               </div>
             </div>
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-              {/* Step 1 */}
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="rounded-full bg-primary p-4">
                   <Utensils className="h-6 w-6 text-primary-foreground" />
@@ -197,7 +209,6 @@ const Index = () => {
                   Restaurant signs up through our landing page or dashboard
                 </p>
               </div>
-              {/* Step 2 */}
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="rounded-full bg-primary p-4">
                   <UploadCloud className="h-6 w-6 text-primary-foreground" />
@@ -207,7 +218,6 @@ const Index = () => {
                   Upload your food items, images, and descriptions
                 </p>
               </div>
-              {/* Step 3 */}
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="rounded-full bg-primary p-4">
                   <Layers3 className="h-6 w-6 text-primary-foreground" />
@@ -217,7 +227,6 @@ const Index = () => {
                   Our system converts the images to stunning 3D AR models
                 </p>
               </div>
-              {/* Step 4 */}
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="rounded-full bg-primary p-4">
                   <QrCode className="h-6 w-6 text-primary-foreground" />
@@ -231,7 +240,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Demo Section */}
         <section id="features" className="w-full py-12 md:py-24">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -306,7 +314,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Benefits for Restaurants */}
         <section id="benefits" className="w-full py-12 md:py-24 bg-secondary/20">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -318,7 +325,6 @@ const Index = () => {
               </div>
             </div>
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-              {/* Benefit 1 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -330,7 +336,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              {/* Benefit 2 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -342,7 +347,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              {/* Benefit 3 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -354,7 +358,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              {/* Benefit 4 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -366,7 +369,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              {/* Benefit 5 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -378,7 +380,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              {/* Benefit 6 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -394,7 +395,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Live Restaurant Page Preview */}
         <section id="preview" className="w-full py-12 md:py-24">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -454,7 +454,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Testimonials */}
         <section id="testimonials" className="w-full py-12 md:py-24 bg-secondary/20">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -466,7 +465,6 @@ const Index = () => {
               </div>
             </div>
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              {/* Testimonial 1 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col space-y-4">
@@ -490,7 +488,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              {/* Testimonial 2 */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex flex-col space-y-4">
@@ -518,7 +515,6 @@ const Index = () => {
             <div className="mt-12 text-center">
               <h3 className="text-xl font-bold mb-6">Trusted by Restaurants Everywhere</h3>
               <div className="flex flex-wrap justify-center gap-8 opacity-70">
-                {/* Restaurant logos would go here */}
                 {Array.from({ length: 6 }).map((_, index) => (
                   <div key={index} className="h-12 w-24 rounded-md bg-muted flex items-center justify-center">
                     <span className="text-sm font-medium">Restaurant {index + 1}</span>
@@ -529,7 +525,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section id="cta" className="w-full py-12 md:py-24 lg:py-32 bg-primary">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -555,7 +550,6 @@ const Index = () => {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="w-full py-6 md:py-12 border-t">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -598,7 +592,6 @@ const Index = () => {
               © 2025 FoodAR. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              {/* Social Media Icons */}
               <a href="#" className="text-muted-foreground hover:text-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
