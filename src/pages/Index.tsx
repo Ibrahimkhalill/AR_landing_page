@@ -122,7 +122,7 @@ const Index = () => {
               <Button variant="outline" className="hidden md:flex">
                 Log in
               </Button>
-              <Button>
+              <Button onClick={() => setShowModal(true)}>
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -166,7 +166,6 @@ const Index = () => {
           </div>
           <div className="container px-4 md:px-6 mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Hero Section Main Image */}
               <div className="rounded-lg border bg-card shadow-sm overflow-hidden">
                 <div className="relative aspect-video">
                   <img 
@@ -178,7 +177,6 @@ const Index = () => {
                 </div>
               </div>
               
-              {/* Hero Section Secondary Image */}
               <div className="rounded-lg border bg-card shadow-sm overflow-hidden">
                 <div className="relative aspect-video">
                   <img 
@@ -550,11 +548,11 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary" className="group">
+                <Button size="lg" variant="secondary" className="group" onClick={() => setShowModal(true)}>
                   Start Your 3D Menu Today
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" onClick={() => setShowModal(true)}>
                   Book a Demo
                 </Button>
               </div>
@@ -620,3 +618,14 @@ const Index = () => {
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Index;
