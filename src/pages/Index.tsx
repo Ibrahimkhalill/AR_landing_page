@@ -1,4 +1,8 @@
 import { Button } from '@/components/ui/button';
+import { IoLogoLinkedin } from 'react-icons/io';
+import { FaGlobe } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
+
 import { Card, CardContent } from '@/components/ui/card';
 import {
 	Carousel,
@@ -57,12 +61,14 @@ const Index = () => {
 				onOpenChange={setShowModal}
 			/>
 
-			<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+			<header className="sticky top-0 z-50 w-full border-b bg-background/95  ">
 				<div className="container flex h-16 items-center">
 					<div className="mr-4 hidden md:flex">
 						<a href="/" className="mr-6 flex items-center space-x-2">
-							<Layers3 className="h-6 w-6" />
-							<span className="font-bold">FoodAR</span>
+							<img src="/logo.jpg" className="w-10" />
+							<span className="font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+								JVAI FoodAR
+							</span>
 						</a>
 						<NavigationMenu>
 							<NavigationMenuList>
@@ -75,7 +81,7 @@ const Index = () => {
 													<a
 														className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
 														href="/">
-														<Layers3 className="h-6 w-6" />
+														<img src="/logo.jpg" className="w-16" />
 														<div className="mb-2 mt-4 text-lg font-medium">
 															FoodAR
 														</div>
@@ -138,8 +144,8 @@ const Index = () => {
 						<div className="w-full flex-1 md:w-auto md:flex-none">
 							{isMobile && (
 								<div className="flex items-center">
-									<Layers3 className="h-6 w-6 mr-2" />
-									<span className="font-bold">FoodAR</span>
+									<img src="/logo.jpg" className="w-10" />
+									<span className="font-bold ml-1">FoodAR</span>
 								</div>
 							)}
 						</div>
@@ -154,12 +160,12 @@ const Index = () => {
 			</header>
 
 			<main className="flex-1">
-				<section className="w-full py-12 md:py-24 lg:py-32 xl:py-40 bg-gradient-to-b from-background via-background to-secondary/20">
+				<section className="w-full py-20 bg-gradient-to-b from-background via-background to-secondary/20">
 					<div className="container px-4 md:px-6">
 						<div className="flex flex-col items-center space-y-4 text-center">
 							<div className="space-y-2">
 								<div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground mb-4">
-									Next-Generation Restaurant Technology
+									Next-Generation 3D Experience
 								</div>
 								<h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
 									Turn Your Menu Into an{' '}
@@ -187,23 +193,43 @@ const Index = () => {
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 							<div className="rounded-lg border bg-card shadow-sm overflow-hidden">
 								<div className="relative aspect-video">
-									<img
-										src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-										alt="Delicious Food in 3D"
-										className="w-full h-full object-cover transform transition-transform hover:scale-110 duration-700"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+									<model-viewer
+										src="/pizza.glb"
+										alt="3D food model"
+										shadow-intensity="1"
+										camera-controls
+										auto-rotate
+										ar
+										ar-modes="scene-viewer quick-look webxr"
+										style={{
+											width: '100%',
+											height: '40vh',
+											borderRadius: '12px',
+											boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+											backgroundColor: '#fff',
+										}}></model-viewer>
+									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 								</div>
 							</div>
 
 							<div className="rounded-lg border bg-card shadow-sm overflow-hidden">
 								<div className="relative aspect-video">
-									<img
-										src="https://images.unsplash.com/photo-1504674900247-0877df9cc836"
-										alt="Restaurant Experience"
-										className="w-full h-full object-cover transform transition-transform hover:scale-110 duration-700"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+									<model-viewer
+										src="/haniban.glb"
+										alt="3D food model"
+										shadow-intensity="1"
+										camera-controls
+										auto-rotate
+										ar
+										ar-modes="scene-viewer quick-look webxr"
+										style={{
+											width: '100%',
+											height: '40vh',
+											borderRadius: '12px',
+											boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+											backgroundColor: '#fff',
+										}}></model-viewer>
+									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 								</div>
 							</div>
 						</div>
@@ -212,11 +238,11 @@ const Index = () => {
 
 				<section
 					id="how-it-works"
-					className="w-full py-12 md:py-24 bg-secondary/20">
+					className="w-full py-5 md:py-24 bg-secondary/20">
 					<div className="container px-4 md:px-6">
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
 							<div className="space-y-2">
-								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
 									How It Works
 								</h2>
 								<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -275,7 +301,7 @@ const Index = () => {
 					<div className="container px-4 md:px-6">
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
 							<div className="space-y-2">
-								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
 									Experience the Future of Dining
 								</h2>
 								<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -289,32 +315,42 @@ const Index = () => {
 							<div className="space-y-4">
 								<div className="rounded-lg border bg-card shadow-sm overflow-hidden relative group">
 									<img
-										src="https://images.unsplash.com/photo-1565299543923-37dd37887442"
+										src="/demo_starbucs.jpg"
 										alt="3D Food Model Demo"
 										className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
 									/>
 									<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
 										<p className="text-white text-sm font-medium">
-											Preview your dish in stunning 3D detail.
+											Preview your dish in stunning 2d detail.
 										</p>
 									</div>
 								</div>
 								<div className="rounded-lg border bg-card shadow-sm overflow-hidden relative group">
-									<img
-										src="https://images.unsplash.com/photo-1467003909585-2f8a72700288"
-										alt="Interactive Food Visualization"
-										className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+									<model-viewer
+										src="/starbucks_coffee.glb"
+										alt="3D food model"
+										shadow-intensity="1"
+										camera-controls
+										auto-rotate
+										ar
+										ar-modes="scene-viewer quick-look webxr"
+										style={{
+											width: '100%',
+											height: '40vh',
+											borderRadius: '12px',
+											boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+											backgroundColor: '#fff',
+										}}></model-viewer>
+									<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
 										<p className="text-white text-sm font-medium">
-											See every angle with AR integration.
+											Preview your dish in stunning 3D detail.
 										</p>
 									</div>
 								</div>
 							</div>
 
 							<div className="space-y-6">
-								<h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+								<h3 className="text-2xl font-bold ">
 									Switch Between Classic & AR Views
 								</h3>
 								<div className="flex flex-col space-y-4">
@@ -347,11 +383,15 @@ const Index = () => {
 														dishes in the real world using AR technology.
 													</p>
 													<div className="flex justify-center">
-														<Button
-															size="sm"
-															className="bg-primary hover:bg-primary/90">
-															Launch AR Demo
-														</Button>
+														<a
+															href="https://demo-restaurant.crocoshark.com/"
+															target="_blank">
+															<Button
+																size="sm"
+																className="bg-primary hover:bg-primary/90">
+																Launch AR Demo Restaurant
+															</Button>
+														</a>
 													</div>
 												</div>
 											</AccordionContent>
@@ -359,8 +399,8 @@ const Index = () => {
 									</Accordion>
 								</div>
 								<div className="flex flex-col space-y-4">
-									<h4 className="font-medium text-lg">
-										What Makes FoodAR Special:
+									<h4 className="font-bold text-lg">
+										What Makes JVAI FoodAR Special:
 									</h4>
 									<ul className="space-y-3">
 										<li className="flex items-center">
@@ -405,7 +445,7 @@ const Index = () => {
 					<div className="container px-4 md:px-6">
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
 							<div className="space-y-2">
-								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
 									Benefits for Restaurants
 								</h2>
 								<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -494,7 +534,7 @@ const Index = () => {
 					<div className="container px-4 md:px-6">
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
 							<div className="space-y-2">
-								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+								<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
 									Live Restaurant Page Preview
 								</h2>
 								<p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -503,56 +543,27 @@ const Index = () => {
 								</p>
 							</div>
 						</div>
-						<div className="mx-auto mt-12">
-							<Carousel className="w-full max-w-5xl mx-auto">
-								<CarouselContent>
-									{[
-										'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe',
-										'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38',
-										'https://images.unsplash.com/photo-1482049016688-2d3e1b311543',
-									].map((imgSrc, index) => (
-										<CarouselItem key={index}>
-											<div className="p-1">
-												<Card>
-													<CardContent className="flex aspect-video items-center justify-center p-6">
-														<div className="relative w-full h-full">
-															<img
-																src={imgSrc}
-																alt={`Restaurant Example ${index + 1}`}
-																className="w-full h-full object-cover rounded-lg"
-															/>
-															<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-																<div className="p-6 text-white">
-																	<h3 className="text-2xl font-bold">
-																		Restaurant Example {index + 1}
-																	</h3>
-																	<p className="text-white/80">
-																		Interactive 3D menu experience
-																	</p>
-																</div>
-															</div>
-														</div>
-													</CardContent>
-												</Card>
-											</div>
-										</CarouselItem>
-									))}
-								</CarouselContent>
-								<CarouselPrevious />
-								<CarouselNext />
-							</Carousel>
+						<div className="mx-auto mt-12 w-[80%]">
+							<div className="relative group shadow-md border rounded-xl">
+								<video
+									src="/demo.mp4"
+									loop
+									muted
+									autoPlay
+									className="w-full h-[500px] object-cover rounded-xl md:h-[600px] lg:h-[700px]"
+								/>
+								{/* Dark overlay over the entire video */}
+								<div className="absolute inset-0 bg-gradient-to-t rounded-xl from-black/80 to-transparent opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none"></div>
+							</div>
 							<div className="flex flex-col items-center justify-center mt-8 space-y-4">
 								<div className="bg-secondary/20 p-6 rounded-lg">
 									<div className="flex flex-col items-center space-y-4">
-										<QrCode className="h-16 w-16 text-primary" />
+										<img src="/qr.png" className="w-24" />
 										<h3 className="text-xl font-bold">Try It Yourself</h3>
 										<p className="text-center text-muted-foreground">
 											Scan this QR code to experience a sample restaurant menu
 											on your device
 										</p>
-										<Button size="sm" variant="outline">
-											Load Sample QR
-										</Button>
 									</div>
 								</div>
 							</div>
@@ -690,8 +701,10 @@ const Index = () => {
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 						<div className="flex flex-col space-y-4">
 							<div className="flex items-center space-x-2">
-								<Layers3 className="h-6 w-6" />
-								<span className="font-bold">FoodAR</span>
+								<img src="/logo.jpg" className="w-20" />
+								<span className="font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+									JVAI FoodAR
+								</span>
 							</div>
 							<p className="text-sm text-muted-foreground">
 								Revolutionizing restaurant menus with AR technology and 3D food
@@ -715,42 +728,41 @@ const Index = () => {
 										How It Works
 									</a>
 								</li>
-							</ul>
-						</div>
-						<div className="flex flex-col space-y-2">
-							<h3 className="font-medium">Resources</h3>
-							<ul className="space-y-2">
 								<li>
 									<a
-										href="#"
+										href="/faq"
 										className="text-sm text-muted-foreground hover:text-foreground">
-										Blog
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-sm text-muted-foreground hover:text-foreground">
-										Documentation
+										FAQ
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div className="flex flex-col space-y-2">
-							<h3 className="font-medium">Legal</h3>
+							<h3 className="font-medium">Corporate Address</h3>
 							<ul className="space-y-2">
 								<li>
-									<a
-										href="/privacy-policy"
-										className="text-sm text-muted-foreground hover:text-foreground">
-										Privacy Policy
+									<a className="text-sm text-muted-foreground hover:text-foreground">
+										Daisy Garden, House 14,Block A, Banasree, main road,
+										Dhaka-1219
 									</a>
 								</li>
 								<li>
 									<a
-										href="/terms-of-service"
+										href="mailto:info@bdcalling.com"
 										className="text-sm text-muted-foreground hover:text-foreground">
-										Terms of Service
+										Email : info@bdcalling.com
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div className="flex flex-col space-y-2">
+							<h3 className="font-medium">Other Branches Address</h3>
+							<ul className="space-y-2">
+								<li>
+									<a className="text-sm text-muted-foreground hover:text-foreground">
+										Kaderia Tower, 1st,2nd & 3rd Floor, Plot # JA-28, 8-B,
+										Mohakhali Gulshan Road Dhaka 1212 (Opposition side of Brac
+										Center)
 									</a>
 								</li>
 							</ul>
@@ -758,61 +770,27 @@ const Index = () => {
 					</div>
 					<div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center">
 						<p className="text-sm text-muted-foreground">
-							© 2025 FoodAR. All rights reserved.
+							© 2025 JAVI (Sister concern of Betopia Group). All rights
+							reserved.
 						</p>
 						<div className="flex space-x-4 mt-4 md:mt-0">
 							<a
-								href="#"
+								href="https://www.facebook.com/Betopia.Group"
+								target="_blank"
 								className="text-muted-foreground hover:text-foreground">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									className="h-5 w-5">
-									<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-								</svg>
+								<FaFacebook size={20} />
 							</a>
 							<a
-								href="#"
+								href="https://www.linkedin.com/company/betopiagroup/"
+								target="_blank"
 								className="text-muted-foreground hover:text-foreground">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									className="h-5 w-5">
-									<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-								</svg>
+								<IoLogoLinkedin size={21} />
 							</a>
 							<a
-								href="#"
+								href="https://www.betopiagroup.com/"
+								target="_blank"
 								className="text-muted-foreground hover:text-foreground">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									className="h-5 w-5">
-									<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-									<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-									<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-								</svg>
+								<FaGlobe size={20} />
 							</a>
 						</div>
 					</div>
