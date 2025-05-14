@@ -8,6 +8,8 @@ import NotFound from './pages/NotFound';
 import FAQ from './pages/FAQ';
 import Index from './pages/Index';
 
+import './App.css';
+
 const queryClient = new QueryClient();
 
 const App = () => (

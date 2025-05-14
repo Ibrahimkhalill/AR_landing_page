@@ -49,6 +49,8 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import React from 'react';
 import RestaurantRegistrationModal from '@/components/RestaurantRegistrationModal';
+import LazyLoadModelViewer from '@/components/LazyLoadModelViewer';
+import LazyLoadVideo from '@/components/LazyLoadVideo';
 
 const Index = () => {
 	const isMobile = useIsMobile();
@@ -191,46 +193,13 @@ const Index = () => {
 					</div>
 					<div className="container px-4 md:px-6 mt-16">
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-							<div className="rounded-lg border bg-card shadow-sm overflow-hidden">
-								<div className="relative aspect-video">
-									<model-viewer
-										src="/pizza.glb"
-										alt="3D food model"
-										shadow-intensity="1"
-										camera-controls
-										auto-rotate
-										ar
-										ar-modes="scene-viewer quick-look webxr"
-										style={{
-											width: '100%',
-											height: '40vh',
-											borderRadius: '12px',
-											boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-											backgroundColor: '#fff',
-										}}></model-viewer>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-								</div>
+							<div className="rounded-lg border bg-card shadow-sm overflow-hidden relative">
+								<LazyLoadModelViewer src="https://ar-menu-bucket-jvai-files.s3-accelerate.amazonaws.com/static_files/pizza.glb" />
+								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
 							</div>
-
-							<div className="rounded-lg border bg-card shadow-sm overflow-hidden">
-								<div className="relative aspect-video">
-									<model-viewer
-										src="/haniban.glb"
-										alt="3D food model"
-										shadow-intensity="1"
-										camera-controls
-										auto-rotate
-										ar
-										ar-modes="scene-viewer quick-look webxr"
-										style={{
-											width: '100%',
-											height: '40vh',
-											borderRadius: '12px',
-											boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-											backgroundColor: '#fff',
-										}}></model-viewer>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-								</div>
+							<div className=" relative rounded-lg border bg-card shadow-sm overflow-hidden">
+								<LazyLoadModelViewer src="https://ar-menu-bucket-jvai-files.s3-accelerate.amazonaws.com/static_files/haniban.glb" />
+								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
 							</div>
 						</div>
 					</div>
@@ -326,21 +295,7 @@ const Index = () => {
 									</div>
 								</div>
 								<div className="rounded-lg border bg-card shadow-sm overflow-hidden relative group">
-									<model-viewer
-										src="/starbucks_coffee.glb"
-										alt="3D food model"
-										shadow-intensity="1"
-										camera-controls
-										auto-rotate
-										ar
-										ar-modes="scene-viewer quick-look webxr"
-										style={{
-											width: '100%',
-											height: '40vh',
-											borderRadius: '12px',
-											boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-											backgroundColor: '#fff',
-										}}></model-viewer>
+									<LazyLoadModelViewer src="https://ar-menu-bucket-jvai-files.s3-accelerate.amazonaws.com/static_files/starbucks_coffee.glb" />
 									<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
 										<p className="text-white text-sm font-medium">
 											Preview your dish in stunning 3D detail.
@@ -545,14 +500,17 @@ const Index = () => {
 						</div>
 						<div className="mx-auto mt-12 w-[80%]">
 							<div className="relative group shadow-md border rounded-xl">
-								<video
-									src="/demo.mp4"
+								{/* <video
+									src="https://ar-menu-bucket-jvai-files.s3-accelerate.amazonaws.com/static_files/demo.mp4"
 									loop
 									muted
 									autoPlay
 									className="w-full h-[500px] object-cover rounded-xl md:h-[600px] lg:h-[700px]"
-								/>
+								/> */}
 								{/* Dark overlay over the entire video */}
+
+								<LazyLoadVideo src="https://ar-menu-bucket-jvai-files.s3-accelerate.amazonaws.com/static_files/demo.mp4" />
+
 								<div className="absolute inset-0 bg-gradient-to-t rounded-xl from-black/80 to-transparent opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none"></div>
 							</div>
 							<div className="flex flex-col items-center justify-center mt-8 space-y-4">
